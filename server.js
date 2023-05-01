@@ -42,6 +42,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
+//a wildcard route for testing
+app.get('*', (req, res) => {
+  res.status(404).send('404 Error: Page not found');
+});
+
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
