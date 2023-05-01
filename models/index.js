@@ -10,7 +10,7 @@ User.hasMany(BlogPost, {
     foreignKey: 'user_id'
   });
 
-module.exports = { User, BlogPost};
+module.exports = { User, BlogPost };
 
 
 
