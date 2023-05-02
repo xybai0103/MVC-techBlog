@@ -18,7 +18,7 @@ BlogPost.init(
     content: {
       type: DataTypes.STRING,
     },
-    date_posted: {
+    date_created: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
