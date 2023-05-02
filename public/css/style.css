@@ -49,9 +49,9 @@ p {
 }
 
  .btn {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   text-decoration:none;
-  padding: 6px 5px;
+  padding: 1%;
   width: 100%;
   display: block;
   margin: 5px 0;
@@ -145,6 +145,13 @@ p {
   border-radius: var(--border-radius);
 }
 
+.signup-link {
+  display: block;
+  font-size: 1.5rem;
+  color: blue;
+  margin-bottom: 1.5%;
+}
+
 /* CARDS */
 .card {
   margin: 0 0 20px 0;
@@ -155,7 +162,7 @@ p {
 .card-header {
   color: var(--primary);
   background-color: var(--dark);
-  padding: 0 1%;
+  padding: 0.5% 1%;
   border-radius: calc(.18rem - 1px) calc(.18rem - 1px) 0 0;
   justify-content: space-between;
 }
@@ -165,24 +172,26 @@ p {
 }
 
 /* FORM */
-.form-label,
+.form-group {
+  padding-top: 0.5%;
+}
+
+label,
 .form-input,
 .form-textarea {
   display: block;
 }
 
-.form-label {
-  font-size: 1.1rem;
-  margin: 0 0 0 5px;
+label {
+  font-size: 1.5rem;
+  padding: 0.5%;
 }
 
 .form-input {
   width: 100%;
-  padding: 3%;
+  padding: 1%;
   margin: 5px 0;
-  font-size: 1.2rem;
-  border: 2px solid var(--light-dark);
-  border-radius: var(--border-radius);
+  font-size: 1.5rem;
 }
 
 /* HEIGHT / WIDTH UTILS */

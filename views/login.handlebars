@@ -4,21 +4,23 @@
     Login
   </h2>
   <!--the form-->
-  <form class="card-body form login-form">
-    <div class="form-group">
-      <label for="username-login">Username</label>
-      <input name="username-login" id="username-login" type="text" autofocus="true" class="form-input" />
-    </div>
-    <div class="form-group">
-      <label for="password-login">Password</label>
-      <input name="password-login" id="password-login" type="password" class="form-input" />
-    </div>
-    <div class="form-group">
-      <button type="submit" class="btn">Login!</button>
-    </div>
-  </form>
-  <!--the signup link-->
-  <a href="/api/users">Sign up instead</a>
+  <div class="card-body">
+    <form class="form login-form">
+      <div class="form-group">
+        <label for="username-login">Username</label>
+        <input name="username-login" id="username-login" type="text" autofocus="true" class="form-input" />
+      </div>
+      <div class="form-group">
+        <label for="password-login">Password</label>
+        <input name="password-login" id="password-login" type="password" class="form-input" />
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn">Login!</button>
+      </div>
+    </form>
+    <!--the signup link-->
+   <a href="/api/users/" class="signup-link">Sign up instead</a>
+  </div>
 </div>
 
 <script src="./js/login.js"></script>
