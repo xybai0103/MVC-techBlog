@@ -1,6 +1,5 @@
 const router = require('express').Router();
-require('../../models');
-const { User } =
+const { User } = require('../../models');
   //sign up
   router.post('/', async (req, res) => {
     try {
@@ -36,7 +35,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect username  or password, please try again' });
+        .json({ message: 'Incorrect username or password, please try again' });
       return;
     }
 
