@@ -21,6 +21,12 @@ body {
   font-size: 16px;
 }
 
+a {
+  color: var(--primary);
+  padding: 0.5%;
+  text-decoration: none;
+}
+
 h1,
 h2,
 h3,
@@ -93,16 +99,17 @@ p {
 }
 
 .hero {
-  padding: 3% 4%;
+  padding: 2% 4%;
   background-color: var(--dark);
   color: var(--primary);
 }
 
-.hero p {
-  max-width: 75%;
+.nav-option {
+  padding-right: 5%;
+  padding-bottom: 1.5%;
 }
 
-.app-title {
+.section-title {
   font-size: 3rem;
   background-color: var(--primary);
   color: var(--dark);
@@ -110,6 +117,7 @@ p {
   display: inline-block;
   border-radius: var(--border-radius);
   box-shadow: 6px 5px var(--light-dark);
+  margin-bottom: 4%;
 }
 
 .list-group {
@@ -137,14 +145,6 @@ p {
   border-radius: var(--border-radius);
 }
 
-.icon-danger {
-  color: rgb(255, 70, 70);
-}
-
-.icon-success {
-  color: rgb(29, 153, 255);
-}
-
 /* CARDS */
 .card {
   margin: 0 0 20px 0;
@@ -155,12 +155,13 @@ p {
 .card-header {
   color: var(--primary);
   background-color: var(--dark);
-  padding: 2.5%;
+  padding: 0 1%;
   border-radius: calc(.18rem - 1px) calc(.18rem - 1px) 0 0;
+  justify-content: space-between;
 }
 
 .card-body {
-  padding: 2.5%;
+  padding: 0 1.5%;
 }
 
 /* FORM */
