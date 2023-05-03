@@ -1,21 +1,32 @@
 const router = require('express').Router();
-const { Comment } = require('../../models');
+const { User, BlogPost, Comment } = require('../../models');
 
-router.put('/blogPost/:id', withAuth, async (req, res) => {
+router.post('/blogPost/:id', withAuth, async (req, res) => {
   try {
-    const blogPostData = await BlogPost.findByPk(req.params.id, {
+    await Comment.create(req.body);
+
+    const blogPostData = await BlogPost.findAll({
+      where: {id: req.params.id},
       include: [
         {
           model: User,
           attributes: ['username'],
         },
+        {
+          model: Comment,
+          attributes: ['content', 'data_posted'],
+          include: {
+            model: User,
+            attributes: ['username'],
+          }
+        }
       ],
     });
 
-    const blogPost = blogPostData.get({ plain: true });
+    const blogPosts = blogPostData.map((blogPost) => blogPost.get({ plain: true }));
 
     res.render('comment', {
-      ...blogPost,
+      ...blogPosts,
       logged_in: req.session.logged_in
     });
   } catch (err) {
