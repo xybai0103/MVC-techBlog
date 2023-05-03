@@ -1,17 +1,19 @@
 const commentFormHandler = async (event) => {
     event.preventDefault();
-  
     // Collect comment content from the comment form
     const commentContent = document.querySelector('#comment-input').value.trim();
     // Get the blogPost ID from the URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const blogPostId = urlParams.get('id');
+    const currentUrl = window.location.href; 
+    const urlParts = currentUrl.split('/'); 
+    const blogPostId = urlParts[urlParts.length - 1]; 
     // Create an object with comment, blogPost ID and user ID
     const commentData = {
         content: commentContent,
-        user_id: req.session.user_id,
         blogpost_id: blogPostId
     };
+
+    console.log(commentContent);
+    console.log(blogPostId);
   
     if (commentContent) {
       // Send a POST request to the API endpoint
@@ -22,8 +24,7 @@ const commentFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        // If successful, redirect the browser to the homepage
-        document.location.replace(`/api/comments/blogPost/${blogPostId}`);
+        //document.location.replace(`/api/comments/blogPost/${blogPostId}`);
       } else {
         alert(response.statusText);
       }

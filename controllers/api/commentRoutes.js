@@ -1,10 +1,14 @@
 const router = require('express').Router();
 const { User, BlogPost, Comment } = require('../../models');
-const withAuth = require('../utils/auth');
+const withAuth = require('../../utils/auth');
 
 router.post('/blogPost/:id', withAuth, async (req, res) => {
   try {
-    await Comment.create(req.body);
+    await Comment.create({
+        content: req.body.commentData.content,
+        user_id: req.session.user_id,
+        blogpost_id: req.body.commentData.blogpost_id
+    });
 
     const blogPostCommentData = await BlogPost.findAll({
       where: {id: req.params.id},
@@ -34,3 +38,5 @@ router.post('/blogPost/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+module.exports = router;
