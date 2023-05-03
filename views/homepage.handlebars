@@ -4,7 +4,7 @@
     <h2 class="card-header flex-row">
       <a href="/blogPost/{{blogPost.id}}">{{blogPost.title}}</a>
       <!--need to access the username property through the User object-->
-      <p>Posted by {{blogPost.user.username}} on {{format_date blogPost.date_created}}</p>
+      <p>Posted by {{blogPost.user.username}} on {{format_date blogPost.date_posted}}</p>
     </h2>
     <div class="card-body">
       <p>
