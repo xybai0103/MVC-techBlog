@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const { User, BlogPost, Comment } = require('../../models');
+const withAuth = require('../utils/auth');
 
 router.post('/blogPost/:id', withAuth, async (req, res) => {
   try {
     await Comment.create(req.body);
 
-    const blogPostData = await BlogPost.findAll({
+    const blogPostCommentData = await BlogPost.findAll({
       where: {id: req.params.id},
       include: [
         {
@@ -14,7 +15,7 @@ router.post('/blogPost/:id', withAuth, async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ['content', 'data_posted'],
+          attributes: ['content', 'date_posted'],
           include: {
             model: User,
             attributes: ['username'],
@@ -23,10 +24,10 @@ router.post('/blogPost/:id', withAuth, async (req, res) => {
       ],
     });
 
-    const blogPosts = blogPostData.map((blogPost) => blogPost.get({ plain: true }));
+    const blogPostComments = blogPostCommentData.map((blogPostComment) => blogPostComment.get({ plain: true }));
 
     res.render('comment', {
-      ...blogPosts,
+      ...blogPostComments,
       logged_in: req.session.logged_in
     });
   } catch (err) {
