@@ -27,6 +27,28 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/blogPost/:id', withAuth, async (req, res) => {
+  try {
+    const blogPostData = await BlogPost.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+    });
+
+    const blogPost = blogPostData.get({ plain: true });
+
+    res.render('blogPost', {
+      ...blogPost,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to homepage
   if (req.session.logged_in) {

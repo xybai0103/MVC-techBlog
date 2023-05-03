@@ -1,0 +1,12 @@
+<div class="card">
+    <h2 class="card-header flex-row">
+      {{blogPost.title}}
+      <!--need to access the username property through the User object-->
+      <p>Posted by {{blogPost.user.username}} on {{format_date blogPost.date_posted}}</p>
+    </h2>
+    <div class="card-body">
+      <p>
+        {{blogPost.content}}
+      </p>
+    </div>
+</div>
