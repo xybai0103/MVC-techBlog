@@ -182,6 +182,10 @@ p {
   padding: 0 1.5%;
 }
 
+#comment-header {
+  padding: 2.2%;
+}
+
 /* FORM */
 .form-group {
   padding-top: 0.5%;
@@ -203,6 +207,11 @@ label {
   padding: 1%;
   margin: 5px 0;
   font-size: 1.5rem;
+}
+
+.comment-form {
+  padding-bottom: 2%;
+
 }
 
 /* HEIGHT / WIDTH UTILS */
