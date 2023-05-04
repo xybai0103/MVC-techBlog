@@ -11,16 +11,20 @@
       </p>
     </div>
 </div>
-{{/with}}
 
 <div class="card">
     <h2 class="card-header" id="comment-header"></h2>
     <div class="card-body">
-      {{#each blogPostComments as |blogPostComment|}}
-      <p>
-        {{blogPostComment.comment.content}}<br>
-        —— {{blogPostComment.comment.user.username}}, {{format_date blogPostComment.comment.date_posted}}
-      </p>
+      {{#each blogPostComments.comments as |comment|}}
+        {{#with (comment.[0])}}
+          <p>
+            {{content}}<br>
+            —— {{user.username}}, {{format_date date_posted}}
+          </p>
+        {{/with}}
       {{/each}}
     </div>
 </div>
+{{/with}}
+
+

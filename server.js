@@ -47,6 +47,6 @@ app.get('*', (req, res) => {
   res.status(404).send('404 Error: Page not found');
 });
 
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });

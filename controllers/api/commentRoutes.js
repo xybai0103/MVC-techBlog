@@ -23,13 +23,14 @@ router.post('/blogPost/:id', withAuth, async (req, res) => {
           include: {
             model: User,
             attributes: ['username'],
-          }
+          },
+          //where: {blogpost_id: req.params.id}
         }
       ],
     });
 
     const blogPostComments = blogPostCommentData.map((blogPostComment) => blogPostComment.get({ plain: true }));
-
+    console.log(blogPostComments);
     res.render('comment', {
       ...blogPostComments,
       logged_in: req.session.logged_in

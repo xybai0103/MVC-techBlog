@@ -25,6 +25,7 @@ const commentFormHandler = async (event) => {
   
       if (response.ok) {
         //document.location.replace(`/api/comments/blogPost/${blogPostId}`);
+        location.reload();
       } else {
         alert(response.statusText);
       }
