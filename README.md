@@ -13,6 +13,7 @@
   - [Questions](#questions)
 
   ## Usage
+  Link to the deployed application: https://mvc-tech-blog-xy.herokuapp.com/
 
   * WHEN you visit the site for the first time, THEN you are presented with the homepage, which includes existing blog posts if any have been posted; navigation links for the homepage and the dashboard; and the option to log in
 
